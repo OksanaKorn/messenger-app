@@ -1,0 +1,18 @@
+.messages-list-ctn {
+  padding-top: 30px;
+  .mes-input-ctn {
+    margin-top: auto;
+    form {
+      text-align: right;
+      input {
+        width: 45%;
+        padding: 20px;
+        border-radius: 40px;
+        border: none;
+        margin-bottom: 30px;
+        margin-left: 20px;
+        margin-top: 30px;
+      }
+    }
+  }
+}

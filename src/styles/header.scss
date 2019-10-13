@@ -1,0 +1,33 @@
+.header {
+  justify-content: flex-end;
+  padding: 10px 20px;
+  background-color: #25314a;
+  border-bottom: 0.3px solid #929898;
+  color: #fff;
+  height: 75px;
+  .user-data-ctn {
+    display: flex;
+    align-items: center;
+  }
+  .user-logo {
+    margin-left: 20px;
+    cursor: pointer;
+  }
+  .user-name {
+    font-weight: 700;
+    font-size: 1.2em;
+    cursor: pointer;
+  }
+  .menu-icon {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .header {
+    justify-content: space-between;
+    .menu-icon {
+      display: block;
+    }
+  }
+}
