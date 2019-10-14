@@ -8,15 +8,22 @@ const Chat = ({ chat, selectActiveChat }) => {
   }
 
   return (
-    <div className="chat-preview-ctn flex-row alignCenter" onClick={selectChat}>
-      <div>
-        <img
-          src={chat.participants[1].avatarUrl}
-          alt={chat.participants[1].name}
-        />
-      </div>
-      <div>{chat.participants[1].name}</div>
-    </div>
+    <>
+      {chat.participants.map(participant => {
+        return (
+          <div
+            key={participant.id}
+            className="chat-preview-ctn flex-row alignCenter"
+            onClick={selectChat}
+          >
+            <div>
+              <img src={participant.avatarUrl} alt={participant.name} />
+            </div>
+            <div>{participant.name}</div>
+          </div>
+        );
+      })}
+    </>
   );
 };
 

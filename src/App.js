@@ -20,6 +20,18 @@ function App() {
     setactiveChat(chats.find(chat => chat.id === chatId));
   }
 
+  function filterChatsParticipents() {
+    const filteredChats = chats.map(chat => {
+      return {
+        ...chat,
+        participants: chat.participants.filter(
+          participant => participant.id !== user.id
+        )
+      };
+    });
+    return filteredChats;
+  }
+
   function updateActiveChat(message) {
     const newactiveChat = {
       ...activeChat
@@ -33,7 +45,10 @@ function App() {
       <Header user={user} />
       <div className="flex-row main-container">
         <div className="aside-wrapper" id="aside-wrapper">
-          <ChatList chats={chats} selectActiveChat={selectActiveChat} />
+          <ChatList
+            chats={filterChatsParticipents()}
+            selectActiveChat={selectActiveChat}
+          />
         </div>
         <div className="main-view-wrapper">
           <MessagesList
