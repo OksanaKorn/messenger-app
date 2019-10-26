@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import "../styles/message.scss";
 
-function message({ message, user, friend }) {
+function message({ message, user, friend, replyedMessage }) {
   if (message.ownerId === user.id) {
     return (
       <div className="message-ctn right">
@@ -15,6 +15,7 @@ function message({ message, user, friend }) {
   } else {
     return (
       <div className="message-ctn left">
+        {/* <div>{replyedMessage.text}</div> */}
         <div className="flex-row alignCenter">
           <img src={friend.avatarUrl} alt={friend.name} />
           <div className="message-text">{message.text}</div>
@@ -35,7 +36,8 @@ message.propeTypes = {
     })
   ).isRequired,
   user: PropTypes.object.isRequired,
-  friend: PropTypes.object.isRequired
+  friend: PropTypes.object.isRequired,
+  replyedMessage: PropTypes.object
 };
 
 export default message;

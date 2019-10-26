@@ -22,14 +22,20 @@ export function getChats() {
           text: "some text1",
           publishDate: 1560280429,
           ownerId: 1,
-          recepientId: 2
+          recepientId: 2,
+          replyedMessage: {
+            id: null
+          }
         },
         {
           id: "c5babaff",
           text: "another text1",
           publishDate: 1560288429,
           ownerId: 2,
-          recepientId: 1
+          recepientId: 1,
+          replyedMessage: {
+            id: "c4b92677"
+          }
         }
       ]
     },
@@ -55,14 +61,20 @@ export function getChats() {
           text: "some text",
           publishDate: 1560988429,
           ownerId: 1,
-          recepientId: 3
+          recepientId: 3,
+          replyedMessage: {
+            id: null
+          }
         },
         {
           id: "c45e75a4",
           text: "another text",
           publishDate: 1568988429,
           ownerId: 3,
-          recepientId: 1
+          recepientId: 1,
+          replyedMessage: {
+            id: null
+          }
         }
       ]
     }

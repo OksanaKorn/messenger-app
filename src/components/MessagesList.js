@@ -19,6 +19,9 @@ function MessagesList({ activeChat, user, updateActiveChat }) {
 
   useEffect(() => {
     findFriendData();
+    return () => {
+      setUserInput(userInput);
+    };
   }, [activeChat]);
 
   function handleOnSubmit(event) {
@@ -36,6 +39,10 @@ function MessagesList({ activeChat, user, updateActiveChat }) {
     setUserInput("");
   }
 
+  function setReplyedMessage(id) {
+    return activeChat.messages.find(message => message.id === id);
+  }
+
   function handleOnChange(event) {
     setUserInput(event.target.value);
   }
@@ -43,6 +50,18 @@ function MessagesList({ activeChat, user, updateActiveChat }) {
   return (
     <div className="messages-list-ctn flex-column">
       {activeChat.messages.map(message => {
+        if (message.replyedMessage.id) {
+          return (
+            <div key={message.id}>
+              <Message
+                message={message}
+                user={user}
+                friend={friend}
+                replyedMessage={setReplyedMessage(message.replyedMessage.id)}
+              />
+            </div>
+          );
+        }
         return (
           <div key={message.id}>
             <Message message={message} user={user} friend={friend} />
